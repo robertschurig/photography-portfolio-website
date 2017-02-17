@@ -1,0 +1,18 @@
+.columns {
+  &.has-1px-gap {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+    & > .column {
+      margin: 0;
+      padding: 1px;
+    }
+  }
+}

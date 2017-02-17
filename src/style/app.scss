@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+// styles in src/style directory are applied to the whole page
+// @import '../../node_modules/bulma/bulma';
+
+@import "../../node_modules/bulma/sass/utilities/_all";
+@import "../../node_modules/bulma/sass/base/_all";
+// elements
+@import "../../node_modules/bulma/sass/elements/box.sass";
+@import "../../node_modules/bulma/sass/elements/button.sass";
+@import "../../node_modules/bulma/sass/elements/content.sass";
+@import "../../node_modules/bulma/sass/elements/image.sass";
+@import "../../node_modules/bulma/sass/elements/notification.sass";
+@import "../../node_modules/bulma/sass/elements/title.sass";
+@import "../../node_modules/bulma/sass/elements/other.sass";
+// grid
+@import "../../node_modules/bulma/sass/grid/columns.sass";
+// components
+@import "../../node_modules/bulma/sass/components/modal.sass";
+@import "../../node_modules/bulma/sass/components/nav.sass";
+
+.container {
+  // border: 1px solid lightgrey;
+  display: block;
+}
+
+.title {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 2.5rem;
+}
+
+.is-clickable {
+  cursor: pointer;
+}
+
+.is-118x118 {
+  height: 118px;
+  width: 118px;
+}
+
+.project-section {
+  padding-bottom: 2rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+
+  @media screen and (min-width: $desktop) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.rs-modal {
+  display: none;
+  &.is-active {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: absolute;
+      max-width: 85%;
+      top: 10%;
+      left: 5%;
+      border-radius: 3px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.9);
+      cursor: pointer;
+
+      &:empty {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      @media screen and (orientation: portrait) {
+        max-width: 90%;
+      }
+      @media screen and (orientation: landscape) {
+        max-height: 90%;
+      }
+    }
+  }
+}
