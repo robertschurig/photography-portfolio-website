@@ -1,12 +1,20 @@
 <section *ngFor="let project of projects | async" class="project-section content">
     <h2>{{project.title}}</h2>
     <div class="columns is-multiline is-mobile is-gapless">
-        <img *ngFor="let image of project.images;" [src]="image.thumb" class="image is-118x118 is-clickable"
-             (click)="openModal(image)">
+        <img *ngFor="let image of project.images;let i = index;" [src]="image.thumb" class="image is-118x118 is-clickable"
+             (click)="openModal(project.images, i)">
     </div>
 </section>
 <div class="rs-modal" [class.is-active]="modalActive">
-    <img [src]="selectedImage.source" (click)="closeModal()">
+    <img [src]="selectedImage.source">
+    <div class="rs-nav">
+        <span class="rs-prev" (click)="prevImage()">
+            ${ require('../../assets/angle-left.svg') }
+        </span>
+        <span class="rs-next" (click)="nextImage()">
+            ${ require('../../assets/angle-right.svg') }
+        </span>
+    </div>
     <button class="modal-close" (click)="closeModal()"></button>
 </div>
 

@@ -5,32 +5,18 @@ import {HomeService} from './home.service';
 
 @Component({
   selector: 'home',
-  templateUrl: 'home.component.html',
-  styleUrls: ['home.component.scss']
+  templateUrl: 'home.component.html'
 })
 export class HomeComponent implements OnInit {
-
-  private images: Observable<IImages>;
-  private selectedImage: IImage = {
-    source: '',
-    thumb: '',
-    title: ''
-  };
-  private modalActive: boolean;
+  private images: IImages;
 
   constructor(private service: HomeService) {
   }
 
   ngOnInit() {
-    this.images = this.service.getPortraits();
-  }
-
-  openModal(item: IImage): void {
-    this.selectedImage = item;
-    this.modalActive = true;
-  }
-
-  closeModal() {
-    this.modalActive = false;
+    this.service.getPortraits()
+      .subscribe((result: IImages) => {
+        this.images = result;
+      });
   }
 }

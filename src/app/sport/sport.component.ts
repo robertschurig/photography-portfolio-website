@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SportService} from './sport.service';
-import {IImage, IProjects} from '../shared/image-list.interface';
+import {IImage, IImages, IProjects} from '../shared/image-list.interface';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -9,7 +9,7 @@ import {Observable} from 'rxjs';
   styleUrls: ['sport.component.scss']
 })
 export class SportComponent implements OnInit {
-
+  private projectImages: IImages;
   private projects: Observable<IProjects>;
   private selectedImage: IImage = {
     source: '',
@@ -17,6 +17,7 @@ export class SportComponent implements OnInit {
     title: ''
   };
   private modalActive: boolean;
+  private selectedImageIndex: number;
 
   constructor(private apiService: SportService) {
   }
@@ -25,8 +26,9 @@ export class SportComponent implements OnInit {
     this.projects = this.apiService.getProjects();
   }
 
-  openModal(item: IImage): void {
-    this.selectedImage = item;
+  openModal(projectImages: IImages, index: number): void {
+    this.projectImages = projectImages;
+    this.selectImage(index);
     this.modalActive = true;
   }
 
@@ -34,4 +36,26 @@ export class SportComponent implements OnInit {
     this.modalActive = false;
   }
 
+  nextImage() {
+    if (this.selectedImageIndex >= this.projectImages.length - 1) {
+      this.selectImage(0);
+      return;
+    }
+
+    this.selectImage(this.selectedImageIndex + 1);
+  }
+
+  prevImage() {
+    if (this.selectedImageIndex <= 0) {
+      this.selectImage(this.projectImages.length - 1);
+      return;
+    }
+
+    this.selectImage(this.selectedImageIndex - 1);
+  }
+
+  private selectImage(index: number) {
+    this.selectedImageIndex = index;
+    this.selectedImage = this.projectImages[this.selectedImageIndex];
+  }
 }

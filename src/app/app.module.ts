@@ -9,13 +9,15 @@ import {HttpModule} from '@angular/http';
 import {HomeService} from './home/home.service';
 import {PageNotFoundComponent} from './pagenotfound/page-not-found.component';
 import {SportService} from './sport/sport.service';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpModule,
-    routing
+    routing,
+    SharedModule
   ],
   declarations: [
     AppComponent,

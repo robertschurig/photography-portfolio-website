@@ -1,11 +1,1 @@
-<section class="columns is-multiline has-1px-gap">
-    <div *ngFor="let image of images | async;" class="column is-4">
-        <figure class="image is-1by1 is-clickable" (click)="openModal(image)">
-            <img [src]="image.thumb">
-        </figure>
-    </div>
-</section>
-<div class="rs-modal" [class.is-active]="modalActive">
-    <img [src]="selectedImage.source" (click)="closeModal()">
-    <button class="modal-close" (click)="closeModal()"></button>
-</div>
+<image-grid [images]="images"></image-grid>

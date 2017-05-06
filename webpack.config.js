@@ -96,7 +96,7 @@ module.exports = function makeWebpackConfig() {
 
       // copy those assets to output
       {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        test: /\.(png|jpe?g|gif|woff|woff2|ttf|eot|ico)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: 'file-loader?name=fonts/[name].[hash].[ext]?'
       },
 
@@ -127,7 +127,8 @@ module.exports = function makeWebpackConfig() {
 
       // support for .html as raw text
       // todo: change the loader to something that adds a hash to images
-      {test: /\.html$/, loader: 'raw-loader',  exclude: root('src', 'public')}
+      {test: /\.html$/, loader: 'html-loader',  exclude: root('src', 'public')},
+      {test: /\.svg/, loader: 'svg-inline-loader'}
     ]
   };
 
@@ -167,6 +168,12 @@ module.exports = function makeWebpackConfig() {
     // Tslint configuration for webpack 2
     new webpack.LoaderOptionsPlugin({
       options: {
+        htmlLoader: {
+          minimize: false,
+          interpolate: true,
+          attrs: false
+        },
+
         /**
          * Apply the tslint loader as pre/postLoader
          * Reference: https://github.com/wbuchwalter/tslint-loader
@@ -174,14 +181,6 @@ module.exports = function makeWebpackConfig() {
         tslint: {
           emitErrors: false,
           failOnHint: false
-        },
-        /**
-         * Sass
-         * Reference: https://github.com/jtangelder/sass-loader
-         * Transforms .scss files to .css
-         */
-        sassLoader: {
-          //includePaths: [path.resolve(__dirname, "node_modules/foundation-sites/scss")]
         },
         /**
          * PostCSS
