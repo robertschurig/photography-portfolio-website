@@ -11,7 +11,7 @@ export class SportService {
   }
 
   public getProjects(): Observable<IProjects> {
-    return this._projects ? Observable.of(this._projects) : this.http.get('./content/projects.json').map(res => res.json().data)
+    return this._projects ? Observable.of(this._projects) : this.http.get('./content/sport.json').map(res => res.json().data)
         .flatMap((projects) => {
           let observables: Observable<any>[] = [];
           projects.forEach((project: any) => {
