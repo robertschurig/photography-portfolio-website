@@ -19,6 +19,8 @@
     <div id="nav-menu" class="nav-right nav-menu heading" [class.is-active]="mobileMenuActive">
         <a class="nav-item" [routerLink]="['home']" [routerLinkActive]="['is-active']"
            (click)="mobileMenuActive = false">home</a>
+        <a class="nav-item" [routerLink]="['series']" [routerLinkActive]="['is-active']"
+           (click)="mobileMenuActive = false">series</a>
         <a class="nav-item" [routerLink]="['sport']" [routerLinkActive]="['is-active']"
            (click)="mobileMenuActive = false">Sport</a>
         <a class="nav-item" [routerLink]="['contact']" [routerLinkActive]="['is-active']"

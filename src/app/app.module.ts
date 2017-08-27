@@ -10,6 +10,8 @@ import {HomeService} from './home/home.service';
 import {PageNotFoundComponent} from './pagenotfound/page-not-found.component';
 import {SportService} from './sport/sport.service';
 import {SharedModule} from './shared/shared.module';
+import { SeriesComponent } from './series/series.component';
+import { SeriesService } from './series/series.service';
 
 
 @NgModule({
@@ -23,11 +25,13 @@ import {SharedModule} from './shared/shared.module';
     AppComponent,
     HomeComponent,
     SportComponent,
+    SeriesComponent,
     ContactComponent,
     PageNotFoundComponent
   ],
   providers: [
     SportService,
+    SeriesService,
     HomeService
   ],
   bootstrap: [AppComponent]

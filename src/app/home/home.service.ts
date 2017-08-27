@@ -21,7 +21,7 @@ export class HomeService {
 
   private extractData(res: Response): IImages {
     let body = res.json();
-    return body.data || [];
+    return body.images || [];
   }
 
   private handleError(error: Response | any) {
