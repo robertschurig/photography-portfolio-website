@@ -1,32 +1,33 @@
-<nav class="nav">
-    <div class="nav-left">
-        <a class="nav-item is-brand" [routerLink]="['']">
-            <span class="title">Robert Schurig</span>
-        </a>
-    </div>
-    <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
-    <!-- You need JavaScript to toggle the "is-active" class on "nav-menu" -->
-    <span id="nav-toggle" class="nav-toggle heading"
+<nav class="navbar is-transparent">
+  <div class="navbar-brand">
+    <a class="navbar-item" [routerLink]="['']">
+      <span class="title">Robert Schurig</span>
+    </a>
+
+    <div class="navbar-burger burger"
           (click)="mobileMenuActive = !mobileMenuActive"
           [class.is-active]="mobileMenuActive">
-            <span></span>
-            <span></span>
-            <span></span>
-        </span>
-
-    <!-- This "nav-menu" is hidden on mobile -->
-    <!-- Add the modifier "is-active" to display it on mobile -->
-    <div id="nav-menu" class="nav-right nav-menu heading" [class.is-active]="mobileMenuActive">
-        <a class="nav-item" [routerLink]="['home']" [routerLinkActive]="['is-active']"
-           (click)="mobileMenuActive = false">home</a>
-        <a class="nav-item" [routerLink]="['series']" [routerLinkActive]="['is-active']"
-           (click)="mobileMenuActive = false">series</a>
-        <a class="nav-item" [routerLink]="['sport']" [routerLinkActive]="['is-active']"
-           (click)="mobileMenuActive = false">Sport</a>
-        <a class="nav-item" [routerLink]="['contact']" [routerLinkActive]="['is-active']"
-           (click)="mobileMenuActive = false">Contact</a>
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+  </div>
+
+  <div id="nav-menu" class="navbar-menu heading" [class.is-active]="mobileMenuActive">
+      <div class="navbar-end">
+          <a class="navbar-item" [routerLink]="['home']" [routerLinkActive]="['is-active']"
+             (click)="mobileMenuActive = false">home</a>
+          <a class="navbar-item" [routerLink]="['series']" [routerLinkActive]="['is-active']"
+             (click)="mobileMenuActive = false">series</a>
+          <a class="navbar-item" [routerLink]="['sport']" [routerLinkActive]="['is-active']"
+             (click)="mobileMenuActive = false">Sport</a>
+          <a class="navbar-item" [routerLink]="['contact']" [routerLinkActive]="['is-active']"
+             (click)="mobileMenuActive = false">Contact</a>
+      </div>
+  </div>
 </nav>
+
+
 <main>
     <router-outlet></router-outlet>
 </main>

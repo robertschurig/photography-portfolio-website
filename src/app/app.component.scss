@@ -1,4 +1,21 @@
-.nav {
+.navbar {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+.navbar-item {
+  font-size: 16px;
+  padding: 0.5rem 0.4rem;
+}
+
+.navbar .navbar-brand {
+  margin: 0;
+
+  .navbar-item {
+    padding-left: 0px;
+  }
+}
+
+.navbar .navbar-menu {
+  margin: 0;
 }

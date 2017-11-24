@@ -5,6 +5,7 @@
              (click)="openModal(project.images, i)">
     </div>
 </section>
+
 <div class="rs-modal" [class.is-active]="modalActive">
     <img [src]="selectedImage.source">
     <div class="rs-nav">
@@ -18,4 +19,3 @@
     </div>
     <button class="modal-close" (click)="closeModal()"></button>
 </div>
-

@@ -1,0 +1,24 @@
+<section class="columns is-multiline has-1px-gap">
+    <div *ngFor="let image of images; let i = index;" class="column is-4">
+        <figure class="image is-1by1 is-clickable" (click)="openModal(i)">
+            <img [src]="image.thumb">
+        </figure>
+    </div>
+</section>
+
+<div class="rs-modal" [class.is-active]="modalActive">
+    <img [src]="selectedImage.source">
+    <div class="rs-nav">
+        <span class="rs-prev" (click)="prevImage()">
+          <svg class="rs-icon" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path class="rs-icon-angle-left" d="M1203 544q0 13-10 23l-393 393 393 393q10 10 10 23t-10 23l-50 50q-10 10-23 10t-23-10l-466-466q-10-10-10-23t10-23l466-466q10-10 23-10t23 10l50 50q10 10 10 23z"/>
+          </svg>
+        </span>
+        <span class="rs-next" (click)="nextImage()">
+          <svg class="rs-icon" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+            <path class="rs-icon-angle-right" d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/>
+          </svg>
+        </span>
+    </div>
+    <button class="modal-close" (click)="closeModal()"></button>
+</div>

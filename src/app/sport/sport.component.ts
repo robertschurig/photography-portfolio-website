@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SportService} from './sport.service';
-import {IImage, IImages, IProjects} from '../modules/image-list.interface';
+import {IImage, IImages, IProjects} from '../shared/image-list.interface';
 import {Observable} from 'rxjs';
 
 @Component({

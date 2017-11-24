@@ -1,6 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
 import {IImage, IImages} from '../image-list.interface';
-import {Observable} from 'rxjs';
 
 @Component({
   selector: 'image-grid',
