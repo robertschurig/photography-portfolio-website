@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {IImage, IImages} from '../shared/image-list.interface';
+import {IImage, IImages} from '../modules/image-list.interface';
 import {Observable} from 'rxjs';
 import {HomeService} from './home.service';
 

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
-import {IImages} from '../shared/image-list.interface';
+import {IImages} from '../modules/image-list.interface';
 import {Observable} from 'rxjs';
 
 @Injectable()

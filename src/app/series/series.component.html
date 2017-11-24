@@ -9,10 +9,11 @@
     <img [src]="selectedImage.source">
     <div class="rs-nav">
         <span class="rs-prev" (click)="prevImage()">
-            ${ require('../../assets/angle-left.svg') }
+            <!--${ require('../../assets/angle-left.svg') }-->
+            <svg:g arrow-left></svg:g>
         </span>
         <span class="rs-next" (click)="nextImage()">
-            ${ require('../../assets/angle-right.svg') }
+            <!--${ require('../../assets/angle-right.svg') }-->
         </span>
     </div>
     <button class="modal-close" (click)="closeModal()"></button>

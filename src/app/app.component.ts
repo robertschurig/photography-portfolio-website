@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 
-import '../style/app.scss';
+import '../global.scss';
 
 @Component({
   selector: 'portfolio-app',
