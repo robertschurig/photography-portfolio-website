@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProjects, IProject, ISeries } from '../shared/image-list.interface';
 import { Observable } from 'rxjs';
-import { flatMap, map } from 'rxjs/operators';
+import { mergeMap, map } from 'rxjs/operators';
 
 @Injectable()
 export class SeriesService {
@@ -14,7 +14,7 @@ export class SeriesService {
   public getProjects(): Observable<IProjects> {
     return this._projects ? Observable.of(this._projects) : this.http.get('./content/series.json')
       .pipe(
-      flatMap((projects: { data: ISeries }) => {
+      mergeMap((projects: { data: ISeries }) => {
         let observables: Observable<any>[] = [];
         projects.data.forEach((project) => {
           observables.push(this.http.get<IProject>(project.url));
