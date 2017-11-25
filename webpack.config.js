@@ -68,8 +68,7 @@ module.exports = {
 
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
-      hash: true,
-      
+      hash: true
     }),
     new webpack.ContextReplacementPlugin(
       /\@angular(\\|\/)core(\\|\/)esm5/,
@@ -79,7 +78,8 @@ module.exports = {
 
     new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
       mangle: {
-        keep_fnames: true
+        keep_fnames: true,
+        parallel: true
       }
     }),
     new ExtractTextPlugin('styles.css'),
