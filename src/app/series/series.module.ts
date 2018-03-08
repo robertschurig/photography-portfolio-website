@@ -7,14 +7,14 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
-    routing
+    routing,
   ],
   declarations: [
-    SeriesComponent
+    SeriesComponent,
   ],
   providers: [
-    SeriesService
-  ]
+    SeriesService,
+  ],
 })
 
 export class SeriesModule {

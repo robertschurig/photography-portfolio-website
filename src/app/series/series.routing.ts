@@ -3,7 +3,7 @@ import { SeriesComponent } from './series.component';
 
 
 const routes: Routes = [
-  { path: 'series', component: SeriesComponent }
+  { path: 'series', component: SeriesComponent },
 ];
 
 export const routing = RouterModule.forRoot(routes);

@@ -4,16 +4,16 @@ import { ImageGridItemComponent } from './image-grid-item/image-grid-item.compon
 import { CommonModule } from '@angular/common';
 
 @NgModule({
-  imports:[
-    CommonModule
+  imports: [
+    CommonModule,
   ],
   declarations: [
     ImageGridComponent,
-    ImageGridItemComponent
+    ImageGridItemComponent,
   ],
   exports: [
-    ImageGridComponent
-  ]
+    ImageGridComponent,
+  ],
 })
 
 export class ImageGridModule {

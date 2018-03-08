@@ -7,14 +7,14 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
-    routing
+    routing,
   ],
   declarations: [
-    SportComponent
+    SportComponent,
   ],
   providers: [
-    SportService
-  ]
+    SportService,
+  ],
 })
 
 export class SportModule {

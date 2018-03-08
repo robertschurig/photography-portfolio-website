@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'series',
   templateUrl: 'series.component.html',
-  styleUrls: ['series.component.scss']
+  styleUrls: ['series.component.scss'],
 })
 export class SeriesComponent implements OnInit {
   private projectImages: IImages;
@@ -14,7 +14,7 @@ export class SeriesComponent implements OnInit {
   private selectedImage: IImage = {
     source: '',
     thumb: '',
-    title: ''
+    title: '',
   };
   private modalActive: boolean;
   private selectedImageIndex: number;

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { IImages } from '../shared/image-list.interface';
 import { HomeService } from './home.service';
 
 @Component({
   selector: 'home',
-  templateUrl: 'home.component.html'
+  templateUrl: 'home.component.html',
 })
 export class HomeComponent implements OnInit {
   private images: IImages;

@@ -6,11 +6,11 @@ import { CommonModule } from '@angular/common';
 @NgModule({
   imports: [
     CommonModule,
-    routing
+    routing,
   ],
   declarations: [
-    ContactComponent
-  ]
+    ContactComponent,
+  ],
 })
 
 export class ContactModule {

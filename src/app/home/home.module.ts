@@ -9,14 +9,14 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     ImageGridModule,
-    routing
+    routing,
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   providers: [
-    HomeService
-  ]
+    HomeService,
+  ],
 })
 
 export class HomeModule {

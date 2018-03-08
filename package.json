@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "webpack",
-    "serv": "node server.js"
+    "serv": "node server.js",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
   },
   "dependencies": {
     "@angular/common": "^5.2.8",

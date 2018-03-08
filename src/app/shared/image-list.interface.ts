@@ -4,7 +4,7 @@ export interface IImages extends Array<IImage> {
 
 export interface IImage {
   title?: string;
-  date?: string,
+  date?: string;
   thumb: string;
   source: string;
 }

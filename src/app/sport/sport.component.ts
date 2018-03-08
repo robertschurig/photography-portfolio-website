@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'sport',
   templateUrl: 'sport.component.html',
-  styleUrls: ['sport.component.scss']
+  styleUrls: ['sport.component.scss'],
 })
 export class SportComponent implements OnInit {
   private projectImages: IImages;

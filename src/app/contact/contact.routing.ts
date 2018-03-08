@@ -3,7 +3,7 @@ import { ContactComponent } from './contact.component';
 
 
 const routes: Routes = [
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
 ];
 
 export const routing = RouterModule.forRoot(routes);

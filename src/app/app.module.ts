@@ -25,13 +25,13 @@ import { SportModule } from './sport/sport.module';
     PortraitModule,
     ContactModule,
     SeriesModule,
-    SportModule
+    SportModule,
   ],
   declarations: [
     AppComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 export class AppModule {

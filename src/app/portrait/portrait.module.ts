@@ -9,14 +9,14 @@ import { CommonModule } from '@angular/common';
   imports: [
     CommonModule,
     ImageGridModule,
-    routing
+    routing,
   ],
   declarations: [
-    PortraitComponent
+    PortraitComponent,
   ],
   providers: [
-    PortraitService
-  ]
+    PortraitService,
+  ],
 })
 
 export class PortraitModule {

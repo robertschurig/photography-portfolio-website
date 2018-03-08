@@ -3,7 +3,7 @@ import { SportComponent } from './sport.component';
 
 
 const routes: Routes = [
-  { path: 'sport', component: SportComponent }
+  { path: 'sport', component: SportComponent },
 ];
 
 export const routing = RouterModule.forRoot(routes);

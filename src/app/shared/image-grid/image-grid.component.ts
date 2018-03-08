@@ -1,5 +1,5 @@
-import {Component, OnInit, Input} from '@angular/core';
-import {IImage, IImages} from '../image-list.interface';
+import { Component, OnInit, Input } from '@angular/core';
+import { IImage, IImages } from '../image-list.interface';
 
 @Component({
   selector: 'image-grid',
@@ -17,7 +17,7 @@ export class ImageGridComponent implements OnInit {
     this.selectedImage = {
       source: '',
       thumb: '',
-      title: ''
+      title: '',
     };
   }
 
