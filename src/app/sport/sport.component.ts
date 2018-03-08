@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {SportService} from './sport.service';
-import {IImage, IImages, IProjects} from '../shared/image-list.interface';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { SportService } from './sport.service';
+import { IImage, IImages, IProjects } from '../shared/image-list.interface';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'sport',
@@ -14,7 +14,7 @@ export class SportComponent implements OnInit {
   private selectedImage: IImage = {
     source: '',
     thumb: '',
-    title: ''
+    title: '',
   };
   private modalActive: boolean;
   private selectedImageIndex: number;

@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {SeriesService} from './series.service';
-import {IImage, IImages, IProjects} from '../shared/image-list.interface';
-import {Observable} from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { SeriesService } from './series.service';
+import { IImage, IImages, IProjects } from '../shared/image-list.interface';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'series',

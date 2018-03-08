@@ -1,8 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import { take } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 
-import {IImages} from '../shared/image-list.interface';
-import {HomeService} from './home.service';
+import { IImages } from '../shared/image-list.interface';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'home',
@@ -17,8 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.service.getPortraits()
       .take(1)
-      .subscribe(result => {
-        this.images = result.images;
-      });
+      .subscribe(result => this.images = result.images);
   }
 }

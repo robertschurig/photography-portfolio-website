@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import { take } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 
-import {IImages} from '../shared/image-list.interface';
+import { IImages } from '../shared/image-list.interface';
 import { PortraitService } from './portrait.service';
+import 'rxjs/add/operator/take';
 
 @Component({
   selector: 'home',
