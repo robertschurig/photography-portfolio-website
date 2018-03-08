@@ -4,8 +4,8 @@ import { IProject } from '../shared/image-list.interface';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class HomeService {
-  private portraitURL: string = './content/home/data.json';
+export class PortraitService {
+  private portraitURL: string = './content/portrait/portrait.json';
 
   constructor(private http: HttpClient) {
   }

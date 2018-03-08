@@ -2,16 +2,16 @@ import {Component, OnInit} from '@angular/core';
 import { take } from 'rxjs/operators';
 
 import {IImages} from '../shared/image-list.interface';
-import {HomeService} from './home.service';
+import { PortraitService } from './portrait.service';
 
 @Component({
   selector: 'home',
-  templateUrl: 'home.component.html'
+  templateUrl: 'portrait.component.html'
 })
-export class HomeComponent implements OnInit {
+export class PortraitComponent implements OnInit {
   private images: IImages;
 
-  constructor(private service: HomeService) {
+  constructor(private service: PortraitService) {
   }
 
   ngOnInit() {

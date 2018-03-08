@@ -1,39 +1,35 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
 import { routing } from './app.routing';
-import { SportComponent } from './sport/sport.component';
-import { HomeService } from './home/home.service';
 import { PageNotFoundComponent } from './pagenotfound/page-not-found.component';
-import { SportService } from './sport/sport.service';
-import { SharedModule } from './shared/shared.module';
-import { SeriesComponent } from './series/series.component';
-import { SeriesService } from './series/series.service';
+import { ImageGridModule } from './shared/image-grid/image-grid.module';
+import { HomeModule } from './home/home.module';
+import { PortraitModule } from './portrait/portrait.module';
+import { ContactModule } from './contact/contact.module';
+import { SeriesModule } from './series/series.module';
+import { SportModule } from './sport/sport.module';
 
 
 @NgModule({
   imports: [
     BrowserModule,
     HttpClientModule,
+    CommonModule,
     routing,
-    SharedModule
+    ImageGridModule,
+    HomeModule,
+    PortraitModule,
+    ContactModule,
+    SeriesModule,
+    SportModule
   ],
   declarations: [
     AppComponent,
-    HomeComponent,
-    SportComponent,
-    SeriesComponent,
-    ContactComponent,
     PageNotFoundComponent
-  ],
-  providers: [
-    SportService,
-    SeriesService,
-    HomeService
   ],
   bootstrap: [AppComponent]
 })
