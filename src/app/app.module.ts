@@ -20,6 +20,7 @@ import { SportModule } from './sport/sport.module';
     HttpClientModule,
     CommonModule,
     routing,
+
     ImageGridModule,
     HomeModule,
     PortraitModule,

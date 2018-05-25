@@ -1,22 +1,31 @@
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const ENV = process.env.NODE_ENV = process.env.ENV = 'production';
-
 module.exports = {
-  devtool: 'source-map',
-
+  mode: 'production',
+  devtool: 'none',
   entry: {
     'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
     'app': './src/main.ts',
   },
 
   output: {
     path: __dirname + '/dist',
     filename: '[name].js'
+  },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    },
   },
 
   resolve: {
@@ -28,10 +37,16 @@ module.exports = {
   module: {
     rules: [
       {
+        // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
+        // Removing this will cause deprecation warnings to appear.
+        test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
+        parser: {system: true},
+      },
+      {
         test: /\.ts$/,
         use: [
-          {loader:'awesome-typescript-loader'},
-          {loader:'angular2-template-loader'}
+          {loader: 'awesome-typescript-loader'},
+          {loader: 'angular2-template-loader'}
         ]
       },
       {
@@ -40,18 +55,16 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: [ /node_modules/, __dirname + '/src/global.scss' ],
-        use: [ 'to-string-loader', 'css-loader', 'sass-loader' ]
+        exclude: [/node_modules/, __dirname + '/src/global.scss'],
+        use: ['to-string-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /global\.scss$/,
-        use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: [
-              { loader: 'css-loader', query: { modules: false, sourceMaps: true } },
-              { loader: 'sass-loader', query: { sourceMaps: true } }
-            ]
-        })
+        use: [
+          MiniCssExtractPlugin.loader,
+          {loader: 'css-loader', options: {modules: false, sourceMaps: true}},
+          {loader: 'sass-loader', options: {sourceMaps: true}}
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|otf|ttf|eot|ico)$/,
@@ -61,43 +74,21 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.optimize.CommonsChunkPlugin({
-      name: [ 'app', 'vendor', 'polyfills' ]
+    new CleanWebpackPlugin(['dist']),
+    new webpack.DefinePlugin({
+      'process.env.ENV': JSON.stringify('production')
     }),
-
     new HtmlWebpackPlugin({
       template: __dirname + '/src/index.html',
       hash: true
     }),
-    new webpack.ContextReplacementPlugin(
-      /\@angular(\\|\/)core(\\|\/)esm5/,
-      __dirname + '/src',
-      {}
-    ),
-
-    new webpack.optimize.UglifyJsPlugin({ // https://github.com/angular/angular/issues/10618
-      mangle: {
-        keep_fnames: true,
-        parallel: true
-      }
-    }),
-    new ExtractTextPlugin('styles.css'),
-    new webpack.DefinePlugin({
-      'process.env': {
-        'ENV': JSON.stringify(ENV)
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        htmlLoader: {
-          minimize: false // workaround for ng2
-        }
-      }
+    new MiniCssExtractPlugin({
+      filename: "styles.css",
+      chunkFilename: "[name].css"
     }),
     new CopyWebpackPlugin([
       {from: 'data'}
-    ])
+    ]),
   ]
-
 
 };

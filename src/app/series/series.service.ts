@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { mergeMap, map } from 'rxjs/operators';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/forkJoin';
+import { forkJoin, Observable, of } from 'rxjs';
+
 
 import { IProjects, IProject, ISeries } from '../shared/image-list.interface';
 
@@ -14,14 +14,16 @@ export class SeriesService {
   }
 
   public getProjects(): Observable<IProjects> {
-    return this.projects ? Observable.of(this.projects) : this.http.get('./content/series.json')
+    return this.projects ? of(this.projects) : this.http.get('./content/series.json')
       .pipe(
         mergeMap((projects: { data: ISeries }) => {
           const observables: Observable<any>[] = [];
+
           projects.data.forEach((project) => {
             observables.push(this.http.get<IProject>(project.url));
           });
-          return Observable.forkJoin(observables);
+
+          return forkJoin(observables);
         }),
         map((projects: IProjects) => {
           this.projects = projects;
