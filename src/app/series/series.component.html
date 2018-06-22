@@ -1,7 +1,7 @@
 <section *ngFor="let project of projects | async" class="project-section content">
     <h2>{{project.title}}</h2>
     <div class="columns is-multiline is-mobile is-gapless">
-        <img *ngFor="let image of project.images;let i = index;" [src]="image.thumb" class="image is-280x280 is-clickable"
+        <img *ngFor="let image of project.images;let i = index;" [attr.src]="image.thumb" class="image is-280x280 is-clickable"
              (click)="openModal(project.images, i)">
     </div>
 </section>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { IImages } from '../shared/image-list.interface';
 import { PortraitService } from './portrait.service';
@@ -9,16 +9,12 @@ import { PortraitService } from './portrait.service';
   templateUrl: 'portrait.component.html',
 })
 export class PortraitComponent implements OnInit {
-  private images: IImages;
+  public images: Observable<IImages>;
 
   constructor(private service: PortraitService) {
   }
 
   ngOnInit() {
-    this.service.getPortraits()
-      .pipe(
-        take(1),
-      )
-      .subscribe(result => this.images = result.images);
+    this.images = this.service.getPortraits();
   }
 }
