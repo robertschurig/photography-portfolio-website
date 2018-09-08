@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   mode: 'production',
@@ -20,12 +21,13 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          test: /[\\/]node_modules[\\/]/,
+          test: /node_modules/,
           name: "vendors",
           chunks: "all"
         }
       }
     },
+    runtimeChunk: 'single',
   },
 
   resolve: {
@@ -74,6 +76,7 @@ module.exports = {
   },
 
   plugins: [
+    // new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(['dist']),
     new webpack.DefinePlugin({
       'process.env.ENV': JSON.stringify('production')
