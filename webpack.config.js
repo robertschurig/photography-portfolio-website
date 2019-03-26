@@ -51,13 +51,13 @@ module.exports = {
         // Mark files inside `@angular/core` as using SystemJS style dynamic imports.
         // Removing this will cause deprecation warnings to appear.
         test: /[\/\\]@angular[\/\\]core[\/\\].+\.js$/,
-        parser: { system: true },
+        parser: {system: true},
       },
       {
         test: /\.ts$/,
         use: [
-          { loader: 'awesome-typescript-loader' },
-          { loader: 'angular2-template-loader' }
+          {loader: 'awesome-typescript-loader'},
+          {loader: 'angular2-template-loader'}
         ]
       },
       {
@@ -66,15 +66,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: [ /node_modules/, __dirname + '/src/global.scss' ],
-        use: [ 'to-string-loader', 'css-loader', 'sass-loader' ]
+        exclude: [/node_modules/, __dirname + '/src/global.scss'],
+        use: ['to-string-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /global\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { modules: false, sourceMaps: true } },
-          { loader: 'sass-loader', options: { sourceMaps: true } }
+          {loader: 'css-loader'},
+          {loader: 'sass-loader'}
         ]
       },
       {
@@ -86,7 +86,7 @@ module.exports = {
 
   plugins: [
     // new BundleAnalyzerPlugin(),
-    new CleanWebpackPlugin([ 'dist' ]),
+    new CleanWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.ENV': JSON.stringify('production')
     }),
@@ -99,7 +99,7 @@ module.exports = {
       chunkFilename: "[name].css"
     }),
     new CopyWebpackPlugin([
-      { from: 'data' }
+      {from: 'data'}
     ]),
   ]
 
